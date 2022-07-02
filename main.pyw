@@ -14,7 +14,7 @@ gun_img = pygame.image.load("gun.png")
 
 bullet_img = pygame.image.load("wbullet1.png")
 
-bg = pygame.image.load("black.png")
+bg = pygame.image.load("bg.jpg")
 bg = pygame.transform.scale(bg, SIZE)
 score = 0
 shoot = False
