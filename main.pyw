@@ -73,8 +73,8 @@ class Bullet():
 
     def shot(self, other, size):
         global screen, bullet_img, score, shoot
-        self.r.x = pygame.mouse.get_pos()[0] + 50
-        self.r.y = pygame.mouse.get_pos()[1] + 50
+        self.r.x = pygame.mouse.get_pos()[0] 
+        self.r.y = pygame.mouse.get_pos()[1] 
         if self.r.distance_to(other.r) <= size:
             other.go = False
             score += 1
@@ -93,7 +93,7 @@ def main():
     if state == "menu":
         play_button = pygame.image.load("play.png")
         while state == "menu":
-            screen.blit(play_button, (480, 360))
+            screen.blit(play_button, (225, 120))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -151,7 +151,7 @@ def main():
             screen.blit(text_surface, (0, 0))
             screen.blit(text_surface1, (480, 0))
             #screen.blit(text_surface2, (500, 0))
-            screen.blit(ch_img, pygame.mouse.get_pos())
+            screen.blit(ch_img, (pygame.mouse.get_pos()[0] - 60, pygame.mouse.get_pos()[1] - 60))
             screen.blit(gun_img, (pygame.mouse.get_pos()[0] - 238,500 +pygame.mouse.get_pos()[1] / 6))
             fps = clock.get_fps()
             pygame.display.flip()
@@ -185,6 +185,8 @@ def main():
                 # Hight Score Text
                 hste = font.render(f"{hstl[i]}", True,(0, 0, 0))
                 screen.blit(hste, (480, (i + 1) * 69))
+            text_surface = font.render(f"Score: {score:.0f} ", True,(0, 0, 0))
+            screen.blit(text_surface, (0, 0))
             pygame.display.flip()
         hst.close()
             
